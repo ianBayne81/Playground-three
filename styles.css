@@ -1,0 +1,117 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: rgb(168, 166, 166);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#page-container {
+    height: 600px;
+    width: 700px;
+    margin: 25px;
+    background-color: whitesmoke;
+    border: 5px solid rgb(80, 79, 79);
+    border-radius: 25px;
+    box-shadow: 10px 10px 8px 10px #888888;
+}
+
+.page-elements {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 150px;
+    width: 500px;
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(248, 197, 197);
+    border: 5px solid rgb(80, 79, 79);
+    border-radius: 25px;
+    box-shadow: 10px 10px 8px 0px #ad9e9e;
+}
+
+#nuckle {
+    height: 100px;
+    width: 150px;
+    background-image: url("images/nuckle.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: white;
+    border-radius: 25px;
+    border: 2px solid black;
+}
+
+.play-symbols {
+    height: 100px;
+    width: 100px;
+    background-color: white;
+    border-radius: 25px;
+    border: 2px solid black;
+}
+
+.bottom-symbols {
+    height: 100px;
+    width: 100px;
+    border: 2px solid black;
+    border-radius: 25px;
+    background-size: cover;
+    cursor: pointer;
+    background-color: white;
+}
+
+.bottom-symbols-clicked{
+    border: 5px solid yellow;
+}
+
+#bottom-rock {
+    background-image: url("images/rock.png");
+    transform: rotate(270deg)
+}
+
+#bottom-paper {
+    background-image: url("images/paper.png");
+    transform: rotate(270deg)
+}
+
+#bottom-scissors {
+    background-image: url("images/scissors.png");
+    transform: rotate(270deg)
+}
+
+/* settings for phone display */
+@media screen and (min-width: 0px) and (max-width: 700px) {
+
+    #page-container {
+        height: 90vh;
+        width: 85vw;
+        margin: 25px;
+    }
+    
+    .page-elements {
+        height: 100px;
+        width: 80%;
+    }
+
+    #nuckle {
+        height: 70px;
+        width: 100px;
+    }
+
+    .play-symbols {
+        height: 70px;
+        width: 70px;
+    }
+
+    .bottom-symbols {
+        height: 70px;
+        width: 70px;
+    }
+
+    
+}
