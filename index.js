@@ -1,11 +1,11 @@
 //key variables
 const startButton = document.querySelector("#startButton")
-const rockEl = document.querySelector("#rock")
-const paperEl = document.querySelector("#paper")
-const scissorsEl = document.querySelector("#scissors")
 const playerChoice = document.querySelector(".player-symbol")
 const cpuChoice= document.querySelector(".cpu-symbol")
 const restartEl= document.querySelector("#restart")
+const bottomEl= document.querySelector("#bottom-element")
+const buttonEl = document.querySelector("#buttonOne")
+
 let newGame
 
 //create gsap animation 
@@ -62,87 +62,146 @@ class Game {
             cpuChoice.classList.toggle("cpu-scissors")
         }
     }
+
+    renderPlayerChoices() {
+        bottomEl.innerHTML = ""
+
+        const rockButton = document.createElement("button")
+        rockButton.classList.add("rock-element")
+        rockButton.setAttribute("id", "rock")
+        bottomEl.appendChild(rockButton)
+    
+        rockButton.addEventListener("click", (e) => {
+            
+            if (playerChoice.className !== "player-symbol") {
+                return
+            } else {
+
+                let classResult = e.target.className  
+                playerChoice.classList.toggle(classResult)
+                this.cpuFunction()
+                if (this.cpuResult === "Rock") {
+                    this.status = "It's a tie!"
+                } else if (this.cpuResult ==="Paper") {
+                    this.status = "CPU wins!"
+                    this.cpuScore++
+                } else if (this.cpuResult === "Scissors") {
+                    this.status = "Player wins!"
+                    this.playerScore++
+                }
+                
+                animate.pause()
+                this.renderStatus()
+                this.renderScores()
+
+            }
+
+        })
+
+        const paperButton = document.createElement("button")
+        paperButton.classList.add("paper-element")
+        paperButton.setAttribute("id", "paper")
+        bottomEl.appendChild(paperButton)
+
+        paperButton.addEventListener("click", (e) => {
+
+            if (playerChoice.className !== "player-symbol") {
+                return
+            } else {
+
+                let classResult = e.target.className  
+                playerChoice.classList.toggle(classResult)
+                this.cpuFunction()
+                if (this.cpuResult === "Rock") {
+                    this.status = "Player wins!"
+                    this.playerScore++
+                } else if (this.cpuResult ==="Paper") {
+                    this.status = "It's a tie!"
+                } else if (this.cpuResult === "Scissors") {
+                    this.status = "CPU wins!"
+                    this.cpuScore++
+                            
+                }
+                
+                animate.pause()
+                this.renderStatus()
+                this.renderScores()
+
+            }
+        
+        })
+
+        const scissorsButton = document.createElement("button")
+        scissorsButton.classList.add("scissors-element")
+        scissorsButton.setAttribute("id", "scissors")
+        bottomEl.appendChild(scissorsButton)
+
+        scissorsButton.addEventListener("click", (e) => {
+
+            if (playerChoice.className !== "player-symbol") {
+                return
+            } else {
+
+                let classResult = e.target.className  
+                playerChoice.classList.toggle(classResult)
+                this.cpuFunction()
+                if (this.cpuResult === "Rock") {
+                    this.status = "CPU wins!"
+                    this.cpuScore = this.cpuScore + 1
+                } else if (this.cpuResult ==="Paper") {
+                    this.status = "Player wins!"
+                    this.playerScore = this.playerScore + 1
+                } else if (this.cpuResult === "Scissors") {
+                    this.status = "It's a tie!"
+                }
+            
+                animate.pause()
+                this.renderStatus()
+                this.renderScores()
+
+            }
+        
+        })
+        
+    }
+
+    renderRestartButton() {
+
+        buttonEl.innerHTML = ""
+        const restartButton = document.createElement("button")
+        restartButton.classList.add("bottomButton")
+        restartButton.setAttribute("id", "restart")
+        restartButton.textContent = "Make your selection"
+        buttonEl.appendChild(restartButton)
+
+        restartButton.addEventListener("click", (e) => {
+            e.preventDefault()
+            animate.resume()
+            this.clear()
+            this.renderStatus()
+            this.renderPlayerChoices()
+        })
+
+    }
     
 }
 
-
-//start new game when click button
+//click button to start new game
 startButton.addEventListener("click", (e) => {
     e.preventDefault()
     newGame = new Game()
     newGame.clear()
     newGame.renderStatus()
     newGame.renderScores()
-    animate.resume()
-
-})
-
-restartEl.addEventListener("click", (e) => {
-    e.preventDefault()
-    animate.resume()
-    newGame.clear()
-    newGame.renderStatus()
-})
-
-rockEl.addEventListener("click", (e) => {
-    let classResult = e.target.className  
-    playerChoice.classList.toggle(classResult)
-    newGame.cpuFunction()
-    if (newGame.cpuResult === "Rock") {
-        newGame.status = "It's a tie!"
-    } else if (newGame.cpuResult ==="Paper") {
-        newGame.status = "CPU wins!"
-        newGame.cpuScore = newGame.cpuScore + 1
-    } else if (newGame.cpuResult === "Scissors") {
-        newGame.status = "Player wins!"
-        newGame.playerScore = newGame.playerScore + 1
-    }
-    
+    bottomEl.innerHTML = ""
+    newGame.renderRestartButton()
     animate.pause()
-    newGame.renderStatus()
-    newGame.renderScores()
-
-})
-        
-paperEl.addEventListener("click", (e) => {
-    let classResult = e.target.className  
-    playerChoice.classList.toggle(classResult)
-    newGame.cpuFunction()
-    if (newGame.cpuResult === "Rock") {
-        newGame.status = "Player wins!"
-        newGame.playerScore = newGame.playerScore + 1
-    } else if (newGame.cpuResult ==="Paper") {
-        newGame.status = "It's a tie!"
-    } else if (newGame.cpuResult === "Scissors") {
-        newGame.status = "CPU wins!"
-        newGame.cpuScore = newGame.cpuScore + 1
-                
-    }
-    
-    animate.pause()
-    newGame.renderStatus()
-    newGame.renderScores()
 
 })
 
-scissorsEl.addEventListener("click", (e) => {
-    let classResult = e.target.className  
-    playerChoice.classList.toggle(classResult)
-    newGame.cpuFunction()
-    if (newGame.cpuResult === "Rock") {
-        newGame.status = "CPU wins!"
-        newGame.cpuScore = newGame.cpuScore + 1
-    } else if (newGame.cpuResult ==="Paper") {
-        newGame.status = "Player wins!"
-        newGame.playerScore = newGame.playerScore + 1
-    } else if (newGame.cpuResult === "Scissors") {
-        newGame.status = "It's a tie!"
-    }
 
-    animate.pause()
-    newGame.renderStatus()
-    newGame.renderScores()
 
-})
+
+
 
     
