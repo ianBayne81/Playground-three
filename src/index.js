@@ -30,7 +30,6 @@ class Game {
     summaryEl.appendChild(summary)
     }
 
-    
     renderScores() {
     const cpuEl = document.querySelector("#cpuScore")
     cpuEl.innerHTML = ""
@@ -76,7 +75,6 @@ class Game {
             if (playerChoice.className !== "player-symbol") {
                 return
             } else {
-
                 let classResult = e.target.className  
                 playerChoice.classList.toggle(classResult)
                 this.cpuFunction()
@@ -108,7 +106,6 @@ class Game {
             if (playerChoice.className !== "player-symbol") {
                 return
             } else {
-
                 let classResult = e.target.className  
                 playerChoice.classList.toggle(classResult)
                 this.cpuFunction()
@@ -120,7 +117,6 @@ class Game {
                 } else if (this.cpuResult === "Scissors") {
                     this.status = "CPU wins!"
                     this.cpuScore++
-                            
                 }
                 
                 animate.pause()
@@ -141,7 +137,6 @@ class Game {
             if (playerChoice.className !== "player-symbol") {
                 return
             } else {
-
                 let classResult = e.target.className  
                 playerChoice.classList.toggle(classResult)
                 this.cpuFunction()

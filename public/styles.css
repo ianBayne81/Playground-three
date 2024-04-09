@@ -16,7 +16,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    height: 150px;
+    height: 120px;
     width: 500px;
     margin-top: 20px;
     margin-left: auto;
@@ -31,7 +31,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 150px;
+    height: 100px;
     width: 500px;
     margin-top: 25px;
     margin-left: auto;
@@ -65,7 +65,7 @@ body {
     text-align: center;
     color: red;
     font-size: 30px;
-    height: 100px;
+    height: 90px;
     width: 150px;
     background-color: white;
     border-radius: 25px;
@@ -74,8 +74,8 @@ body {
 }
 
 .userEl {
-    height: 100px;
-    width: 100px;
+    height: 90px;
+    width: 90px;
     background-color: white;
     border-radius: 25px;
     border: 2px solid black;
@@ -87,7 +87,7 @@ body {
     align-items: center;
     height: 40%;
     width: 100%;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .score {
@@ -110,8 +110,8 @@ body {
 
 
 .cpu-symbol {
-    height: 100px;
-    width: 100px;
+    height: 90px;
+    width: 90px;
     background-color: white;
     background-image: none;
     border-radius: 25px;
@@ -139,8 +139,8 @@ body {
 }
 
 .player-symbol {
-    height: 100px;
-    width: 100px;
+    height: 90px;
+    width: 90px;
     background-color: white;
     background-image: none;
     border-radius: 25px;
@@ -148,8 +148,8 @@ body {
 }
 
 .rock-element {
-    height: 100px;
-    width: 100px;
+    height: 90px;
+    width: 90px;
     border: 2px solid black;
     border-radius: 25px;
     cursor: pointer;
@@ -160,8 +160,8 @@ body {
 }
 
 .paper-element {
-    height: 100px;
-    width: 100px;
+    height: 90px;
+    width: 90px;
     border: 2px solid black;
     border-radius: 25px;
     cursor: pointer;
@@ -172,8 +172,8 @@ body {
 }
 
 .scissors-element {
-    height: 100px;
-    width: 100px;
+    height: 90px;
+    width: 90px;
     border: 2px solid black;
     border-radius: 25px;
     cursor: pointer;
